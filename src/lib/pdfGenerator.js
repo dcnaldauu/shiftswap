@@ -84,7 +84,7 @@ export async function generateShiftChangePDF(shiftData, posterProfile, recipient
       // Tick box for staff 1
       firstPage.drawText('X', {
         x: 155,
-        y: height - 1970,
+        y: height - 1960,
         size: 14,
         font: helveticaBold,
         color: black,
@@ -97,7 +97,7 @@ export async function generateShiftChangePDF(shiftData, posterProfile, recipient
           const signatureDims = posterSignatureImage.scale(signatureScale)
           firstPage.drawImage(posterSignatureImage, {
             x: 305,
-            y: height - 2065 - signatureDims.height,
+            y: height - 2045 - signatureDims.height,
             width: signatureDims.width,
             height: signatureDims.height,
           })
@@ -164,7 +164,7 @@ export async function generateShiftChangePDF(shiftData, posterProfile, recipient
       // Tick box for staff 2
       firstPage.drawText('X', {
         x: 155 + 845,
-        y: height - 1970,
+        y: height - 1960,
         size: 14,
         font: helveticaBold,
         color: black,
@@ -177,7 +177,7 @@ export async function generateShiftChangePDF(shiftData, posterProfile, recipient
           const signatureDims = recipientSignatureImage.scale(signatureScale)
           firstPage.drawImage(recipientSignatureImage, {
             x: 305 + 845,
-            y: height - 2065 - signatureDims.height,
+            y: height - 2045 - signatureDims.height,
             width: signatureDims.width,
             height: signatureDims.height,
           })
@@ -255,7 +255,7 @@ export async function generateShiftChangePDF(shiftData, posterProfile, recipient
       // Tick box for "I agree to give this shift away"
       firstPage.drawText('X', {
         x: 173,
-        y: height - 1207,
+        y: height - 1197,
         size: 14,
         font: helveticaBold,
         color: black,
@@ -268,7 +268,7 @@ export async function generateShiftChangePDF(shiftData, posterProfile, recipient
           const signatureDims = posterSignatureImage.scale(signatureScale)
           firstPage.drawImage(posterSignatureImage, {
             x: 330,
-            y: height - 1267 - signatureDims.height,
+            y: height - 1247 - signatureDims.height,
             width: signatureDims.width,
             height: signatureDims.height,
           })
@@ -280,7 +280,7 @@ export async function generateShiftChangePDF(shiftData, posterProfile, recipient
       // Tick box for staff taking shift
       firstPage.drawText('X', {
         x: 160,
-        y: height - 1360,
+        y: height - 1350,
         size: 14,
         font: helveticaBold,
         color: black,
@@ -311,7 +311,7 @@ export async function generateShiftChangePDF(shiftData, posterProfile, recipient
           const signatureDims = recipientSignatureImage.scale(signatureScale)
           firstPage.drawImage(recipientSignatureImage, {
             x: 320,
-            y: height - 1475 - signatureDims.height,
+            y: height - 1455 - signatureDims.height,
             width: signatureDims.width,
             height: signatureDims.height,
           })
