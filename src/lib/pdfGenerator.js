@@ -3,8 +3,17 @@ import { PDFDocument, rgb, StandardFonts } from 'pdf-lib'
 export async function generateShiftChangePDF(shiftData, posterProfile, recipientProfile) {
   try {
     // Load the template PDF
-    const templateUrl = '/assets/SHIFT SWAP.pdf'
-    const templateBytes = await fetch(templateUrl).then(res => res.arrayBuffer())
+    // In dev mode, use root path; in production, use BASE_URL
+    const isDev = import.meta.env.DEV
+    const templateUrl = isDev
+      ? '/assets/SHIFT%20SWAP.pdf'
+      : `${import.meta.env.BASE_URL}assets/SHIFT%20SWAP.pdf`
+
+    const response = await fetch(templateUrl)
+    if (!response.ok) {
+      throw new Error(`Failed to load PDF template from ${templateUrl}: ${response.status} ${response.statusText}`)
+    }
+    const templateBytes = await response.arrayBuffer()
     const pdfDoc = await PDFDocument.load(templateBytes)
 
     const pages = pdfDoc.getPages()

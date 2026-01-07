@@ -1,10 +1,12 @@
 import { useState, useEffect } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { supabase } from '../lib/supabase'
 import ShiftCard from '../components/ShiftCard'
 import SignatureModal from '../components/SignatureModal'
 import { generateShiftChangePDF } from '../lib/pdfGenerator'
 
 function ShiftsPage({ profile, onUpdateProfile }) {
+  const navigate = useNavigate()
   const [shifts, setShifts] = useState([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState('all')
@@ -93,7 +95,7 @@ function ShiftsPage({ profile, onUpdateProfile }) {
       }
     } else {
       // For swap, navigate to request form
-      window.location.href = `/create?swapFor=${shift.id}`
+      navigate(`/create?swapFor=${shift.id}`)
     }
   }
 
